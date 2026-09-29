@@ -796,8 +796,7 @@ function handle3DPick(clientX, clientY) {
                 showInfobox();
                 $.ajax({
                     type: 'GET',
-                    url: "/admin/nanzhou/getcabledata.html",
-                    data: { id: item.id_sensor, tower: towerindex },
+                    url: "api/getcabledata_" + item.id_sensor + ".json",
                     dataType: 'json',
                     success: function(data) {
                         applyInfoChart(data);
@@ -859,6 +858,7 @@ function setInfoQueryId(sensorItem) {
     var infoID = document.getElementById('infoID');
     infoID.name = sensorItem.content;
     infoID.setAttribute('data-sensor-id', sensorItem.id_sensor);
+    infoID.setAttribute('data-id', sensorItem.id);
     return infoID;
 }
 
@@ -1012,12 +1012,11 @@ myChart.on('click', function(params) {
     showInfobox();
     towerindex = currentSide === 'downstream' ? 2 : 1;
     var apiUrl = currentSide === 'downstream'
-        ? "/admin/nanzhou/getcabledata3.html"
-        : "/admin/nanzhou/getcabledata2.html";
+        ? "api/getcabledata3_" + params.name + ".json"
+        : "api/getcabledata2_" + params.name + ".json";
     $.ajax({
         type: 'GET',
         url: apiUrl,
-        data: { id: params.name },
         dataType: 'json',
         success: function(data) {
             var obj = parseApiData(data);
@@ -1033,13 +1032,7 @@ document.getElementById('closeInfobox').addEventListener('click', hideInfobox);
 function getData(mode, btn) {
     $.ajax({
         type: 'GET',
-        url: "/admin/nanzhou/getdatasingle.html",
-        data: {
-            mode: mode,
-            id: document.getElementById('infoID').name,
-            select: 0,
-            tower: towerindex
-        },
+        url: "api/getdatasingle_" + document.getElementById('infoID').getAttribute('data-id') + "_" + towerindex + "_" + mode + ".json",
         dataType: 'json',
         success: function(data) {
             document.querySelectorAll('[name="data2"]').forEach(function(b) {
