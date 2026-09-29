@@ -1,0 +1,32 @@
+# 网页资源一律普通 Git 文本跟踪，禁止 LFS（GitHub Pages 不支持 LFS 文件）
+*.html   text
+*.htm    text
+*.css    text
+*.js     text
+*.mjs    text
+*.json   text
+*.xml    text
+*.svg    text
+*.txt    text
+*.md     text
+
+# 二进制资源
+*.obj    binary
+*.png    binary
+*.jpg    binary
+*.jpeg   binary
+*.gif    binary
+*.ico    binary
+*.webp   binary
+*.woff   binary
+*.woff2  binary
+*.ttf    binary
+*.eot    binary
+*.otf    binary
+*.zip    binary
+*.wasm   binary
+*.bin    binary
+*.glb    binary
+*.gltf   binary
+*.draco  binary
+*.drc    binary

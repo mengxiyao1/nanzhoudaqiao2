@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="ch_cn">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <title>"s37" 实时数据</title>
+        <!--favicon-->
+        <link rel="icon" href="./static/admin/assets/images/favicon-32x32.png" type="image/png" />
+        <!-- Vector CSS -->
+        <link href="./static/admin/assets/plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
+        <!--plugins-->
+        <link href="./static/admin/assets/plugins/simplebar/css/simplebar.css" rel="stylesheet" />
+        <link href="./static/admin/assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" />
+        <link href="./static/admin/assets/plugins/metismenu/css/metisMenu.min.css" rel="stylesheet" />
+        <script src="./static/admin/assets/echarts.min.js"></script>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="./static/admin/assets/css/bootstrap.min.css" />
+        <!-- Icons CSS -->
+        <link rel="stylesheet" href="./static/admin/assets/css/icons.css" />
+        <!-- App CSS -->
+        <link rel="stylesheet" href="./static/admin/assets/css/app.css" />
+        <link rel="stylesheet" href="./static/admin/assets/css/tech-theme.css" />
+    </head>
+
+    <body class="bg-theme bg-theme1">
+        <div class="wrapper">
+            <!--header-->
+<header class="top-header">
+    <nav class="navbar navbar-expand">
+        <div class="left-topbar d-flex align-items-center">
+            <a href="javascript:;" class="toggle-btn">	<i class="bx bx-menu"></i>
+            </a>
+        </div>
+        <div class="flex-grow-1 search-bar" style="display: none;">
+            <div class="input-group">
+                <div class="input-group-prepend search-arrow-back">
+                    <button class="btn btn-search-back" type="button"><i class="bx bx-arrow-back"></i>
+                    </button>
+                </div>
+                <input type="text" class="form-control" placeholder="search" />
+                <div class="input-group-append">
+                    <button class="btn btn-search" type="button"><i class="lni lni-search-alt"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="right-topbar ml-auto">
+            <ul class="navbar-nav">
+                <li class="nav-item search-btn-mobile" style="display: none;">
+                    <a class="nav-link position-relative" href="javascript:;">	<i class="bx bx-search vertical-align-middle"></i>
+                    </a>
+                </li>
+                <li class="nav-item dropdown dropdown-lg" style="display: none;">
+                    <a class="nav-link dropdown-toggle dropdown-toggle-nocaret position-relative" href="javascript:;" data-toggle="dropdown">	<span class="msg-count">6</span>
+                        <i class="bx bx-comment-detail vertical-align-middle"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a href="javascript:;">
+                            <div class="msg-header">
+                                <h6 class="msg-header-title">6 New</h6>
+                                <p class="msg-header-subtitle">Application Messages</p>
+                            </div>
+                        </a>
+                        <div class="header-message-list">
+                            <a class="dropdown-item" href="javascript:;">
+                                <div class="media align-items-center">
+                                    <div class="user-online">
+                                        <img src="./static/admin/assets/images/avatars/avatar-1.png" class="msg-avatar" alt="user avatar">
+                                    </div>
+                                    <div class="media-body">
+                                        <h6 class="msg-name">Daisy Anderson <span class="msg-time float-right">5 sec
+                                            ago</span></h6>
+                                        <p class="msg-info">The standard chunk of lorem</p>
+                                    </div>
+                                </div>
+                            </a>
+                            <a class="dropdown-item" href="javascript:;">
+                                <div class="media align-items-center">
+                                    <div class="user-online">
+                                        <img src="./static/admin/assets/images/avatars/avatar-2.png" class="msg-avatar" alt="user avatar">
+                                    </div>
+                                    <div class="media-body">
+                                        <h6 class="msg-name">Althea Cabardo <span class="msg-time float-right">14
+                                            sec ago</span></h6>
+                                        <p class="msg-info">Many desktop publishing packages</p>
+                                    </div>
+                                </div>
+                            </a>
+                            <a class="dropdown-item" href="javascript:;">
+                                <div class="media align-items-center">
+                                    <div class="user-online">
+                                        <img src="./static/admin/assets/images/avatars/avatar-3.png" class="msg-avatar" alt="user avatar">
+                                    </div>
+                                    <div class="media-body">
+                                        <h6 class="msg-name">Oscar Garner <span class="msg-time float-right">8 min
+                                            ago</span></h6>
+                                        <p class="msg-info">Various versions have evolved over</p>
+                                    </div>
+                                </div>
+                            </a>
+                            <a class="dropdown-item" href="javascript:;">
+                                <div class="media align-items-center">
+                                    <div class="user-online">
+                                        <img src="./static/admin/assets/images/avatars/avatar-4.png" class="msg-avatar" alt="user avatar">
+                                    </div>
+                                    <div class="media-body">
+                                        <h6 class="msg-name">Katherine Pechon <span class="msg-time float-right">15
+                                            min ago</span></h6>
+                                        <p class="msg-info">Making this the first true generator</p>
+                                    </div>
+                                </div>
+                            </a>
+                            <a class="dropdown-item" href="javascript:;">
+                                <div class="media align-items-center">
+                                    <div class="user-online">
+                                        <img src="./static/admin/assets/images/avatars/avatar-5.png" class="msg-avatar" alt="user avatar">
+                                    </div>
+                                    <div class="media-body">
+                                        <h6 class="msg-name">Amelia Doe <span class="msg-time float-right">22 min
+                                            ago</span></h6>
+                                        <p class="msg-info">Duis aute irure dolor in reprehenderit</p>
+                                    </div>
+                                </div>
+                            </a>
+                            <a class="dropdown-item" href="javascript:;">
+                                <div class="media align-items-center">
+                                    <div class="user-online">
+                                        <img src="./static/admin/assets/images/avatars/avatar-6.png" class="msg-avatar" alt="user avatar">
+                                    </div>
+                                    <div class="media-body">
+                                        <h6 class="msg-name">Cristina Jhons <span class="msg-time float-right">2 hrs
+                                            ago</span></h6>
+                                        <p class="msg-info">The passage is attributed to an unknown</p>
+                                    </div>
+                                </div>
+                            </a>
+                            <a class="dropdown-item" href="javascript:;">
+                                <div class="media align-items-center">
+                                    <div class="user-online">
+                                        <img src="./static/admin/assets/images/avatars/avatar-7.png" class="msg-avatar" alt="user avatar">
+                                    </div>
+                                    <div class="media-body">
+                                        <h6 class="msg-name">James Caviness <span class="msg-time float-right">4 hrs
+                                            ago</span></h6>
+                                        <p class="msg-info">The point of using Lorem</p>
+                                    </div>
+                                </div>
+                            </a>
+                            <a class="dropdown-item" href="javascript:;">
+                                <div class="media align-items-center">
+                                    <div class="user-online">
+                                        <img src="./static/admin/assets/images/avatars/avatar-8.png" class="msg-avatar" alt="user avatar">
+                                    </div>
+                                    <div class="media-body">
+                                        <h6 class="msg-name">Peter Costanzo <span class="msg-time float-right">6 hrs
+                                            ago</span></h6>
+                                        <p class="msg-info">It was popularised in the 1960s</p>
+                                    </div>
+                                </div>
+                            </a>
+                            <a class="dropdown-item" href="javascript:;">
+                                <div class="media align-items-center">
+                                    <div class="user-online">
+                                        <img src="./static/admin/assets/images/avatars/avatar-9.png" class="msg-avatar" alt="user avatar">
+                                    </div>
+                                    <div class="media-body">
+                                        <h6 class="msg-name">David Buckley <span class="msg-time float-right">2 hrs
+                                            ago</span></h6>
+                                        <p class="msg-info">Various versions have evolved over</p>
+                                    </div>
+                                </div>
+                            </a>
+                            <a class="dropdown-item" href="javascript:;">
+                                <div class="media align-items-center">
+                                    <div class="user-online">
+                                        <img src="./static/admin/assets/images/avatars/avatar-10.png" class="msg-avatar" alt="user avatar">
+                                    </div>
+                                    <div class="media-body">
+                                        <h6 class="msg-name">Thomas Wheeler <span class="msg-time float-right">2 days
+                                            ago</span></h6>
+                                        <p class="msg-info">If you are going to use a passage</p>
+                                    </div>
+                                </div>
+                            </a>
+                            <a class="dropdown-item" href="javascript:;">
+                                <div class="media align-items-center">
+                                    <div class="user-online">
+                                        <img src="./static/admin/assets/images/avatars/avatar-11.png" class="msg-avatar" alt="user avatar">
+                                    </div>
+                                    <div class="media-body">
+                                        <h6 class="msg-name">Johnny Seitz <span class="msg-time float-right">5 days
+                                            ago</span></h6>
+                                        <p class="msg-info">All the Lorem Ipsum generators</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <a href="javascript:;">
+                            <div class="text-center msg-footer">View All Messages</div>
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown dropdown-lg" style="display: none;">
+                    <a class="nav-link dropdown-toggle dropdown-toggle-nocaret position-relative" href="javascript:;" data-toggle="dropdown">	<i class="bx bx-bell vertical-align-middle"></i>
+                        <span class="msg-count">8</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a href="javascript:;">
+                            <div class="msg-header">
+                                <h6 class="msg-header-title">8 New</h6>
+                                <p class="msg-header-subtitle">Application Notifications</p>
+                            </div>
+                        </a>
+                        <div class="header-notifications-list">
+                            <a class="dropdown-item" href="javascript:;">
+                                <div class="media align-items-center">
+                                    <div class="notify bg-light-primary text-primary"><i class="bx bx-group"></i>
+                                    </div>
+                                    <div class="media-body">
+                                        <h6 class="msg-name">New Customers<span class="msg-time float-right">14 Sec
+                                            ago</span></h6>
+                                        <p class="msg-info">5 new user registered</p>
+                                    </div>
+                                </div>
+                            </a>
+                            <a class="dropdown-item" href="javascript:;">
+                                <div class="media align-items-center">
+                                    <div class="notify bg-light-danger text-danger"><i class="bx bx-cart-alt"></i>
+                                    </div>
+                                    <div class="media-body">
+                                        <h6 class="msg-name">New Orders <span class="msg-time float-right">2 min
+                                            ago</span></h6>
+                                        <p class="msg-info">You have recived new orders</p>
+                                    </div>
+                                </div>
+                            </a>
+                            <a class="dropdown-item" href="javascript:;">
+                                <div class="media align-items-center">
+                                    <div class="notify bg-light-shineblue text-shineblue"><i class="bx bx-file"></i>
+                                    </div>
+                                    <div class="media-body">
+                                        <h6 class="msg-name">24 PDF File<span class="msg-time float-right">19 min
+                                            ago</span></h6>
+                                        <p class="msg-info">The pdf files generated</p>
+                                    </div>
+                                </div>
+                            </a>
+                            <a class="dropdown-item" href="javascript:;">
+                                <div class="media align-items-center">
+                                    <div class="notify bg-light-cyne text-cyne"><i class="bx bx-send"></i>
+                                    </div>
+                                    <div class="media-body">
+                                        <h6 class="msg-name">Time Response <span class="msg-time float-right">28 min
+                                            ago</span></h6>
+                                        <p class="msg-info">5.1 min avarage time response</p>
+                                    </div>
+                                </div>
+                            </a>
+                            <a class="dropdown-item" href="javascript:;">
+                                <div class="media align-items-center">
+                                    <div class="notify bg-light-purple text-purple"><i class="bx bx-home-circle"></i>
+                                    </div>
+                                    <div class="media-body">
+                                        <h6 class="msg-name">New Product Approved <span
+                                            class="msg-time float-right">2 hrs ago</span></h6>
+                                        <p class="msg-info">Your new product has approved</p>
+                                    </div>
+                                </div>
+                            </a>
+                            <a class="dropdown-item" href="javascript:;">
+                                <div class="media align-items-center">
+                                    <div class="notify bg-light-warning text-warning"><i class="bx bx-message-detail"></i>
+                                    </div>
+                                    <div class="media-body">
+                                        <h6 class="msg-name">New Comments <span class="msg-time float-right">4 hrs
+                                            ago</span></h6>
+                                        <p class="msg-info">New customer comments recived</p>
+                                    </div>
+                                </div>
+                            </a>
+                            <a class="dropdown-item" href="javascript:;">
+                                <div class="media align-items-center">
+                                    <div class="notify bg-light-success text-success"><i class='bx bx-check-square'></i>
+                                    </div>
+                                    <div class="media-body">
+                                        <h6 class="msg-name">Your item is shipped <span class="msg-time float-right">5 hrs
+                                            ago</span></h6>
+                                        <p class="msg-info">Successfully shipped your item</p>
+                                    </div>
+                                </div>
+                            </a>
+                            <a class="dropdown-item" href="javascript:;">
+                                <div class="media align-items-center">
+                                    <div class="notify bg-light-sinata text-sinata"><i class='bx bx-user-pin'></i>
+                                    </div>
+                                    <div class="media-body">
+                                        <h6 class="msg-name">New 24 authors<span class="msg-time float-right">1 day
+                                            ago</span></h6>
+                                        <p class="msg-info">24 new authors joined last week</p>
+                                    </div>
+                                </div>
+                            </a>
+                            <a class="dropdown-item" href="javascript:;">
+                                <div class="media align-items-center">
+                                    <div class="notify bg-light-mehandi text-mehandi"><i class='bx bx-door-open'></i>
+                                    </div>
+                                    <div class="media-body">
+                                        <h6 class="msg-name">Defense Alerts <span class="msg-time float-right">2 weeks
+                                            ago</span></h6>
+                                        <p class="msg-info">45% less alerts last 4 weeks</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <a href="javascript:;">
+                            <div class="text-center msg-footer">View All Notifications</div>
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown dropdown-user-profile">
+                    <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-toggle="dropdown">
+                        <div class="media user-box align-items-center">
+                            <div class="media-body user-info">
+                                <p class="user-name mb-0">Admin</p>
+                                <p class="designattion mb-0">系统管理员</p>
+                            </div>
+                            <img src="./static/admin/assets/img/face.png" class="user-img" alt="user avatar">
+                        </div>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">	
+                        <a class="dropdown-item" href="javascript:;"><i
+                                class="bx bx-cog"></i><span>账号设置</span></a>
+                        <div class="dropdown-divider mb-0"></div>	<a class="dropdown-item" href="javascript:;"><i
+                                class="bx bx-power-off"></i><span>登出</span></a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown dropdown-language" style="display: none;">
+                    <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-toggle="dropdown">
+                        <div class="lang d-flex">
+                            <div><i class="flag-icon flag-icon-cn"></i>
+                            </div>
+                            <div><span>Chinese</span>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">	<a class="dropdown-item" href="javascript:;"><i
+                                class="flag-icon flag-icon-de"></i><span>German</span></a>
+                        <a class="dropdown-item" href="javascript:;"><i
+                                class="flag-icon flag-icon-fr"></i><span>French</span></a>
+                        <a class="dropdown-item" href="javascript:;"><i
+                                class="flag-icon flag-icon-um"></i><span>English</span></a>
+                        <a class="dropdown-item" href="javascript:;"><i
+                                class="flag-icon flag-icon-in"></i><span>Hindi</span></a>
+                        <a class="dropdown-item" href="javascript:;"><i
+                                class="flag-icon flag-icon-cn"></i><span>Chinese</span></a>
+                        <a class="dropdown-item" href="javascript:;"><i
+                                class="flag-icon flag-icon-ae"></i><span>Arabic</span></a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<!--end header-->
+            <!--sidebar-wrapper-->
+<div class="sidebar-wrapper" data-simplebar="true">
+    <div class="sidebar-header">
+        <div class="">
+            <img src="http://1.117.138.94/hcmlogo.png" class="logo-icon-2" alt="" />
+        </div>
+        <div>
+            <h4 class="logo-text">南洲大桥</h4>
+            <h4 class="logo-text">在线索力监测</h4>
+        </div>
+        <a href="javascript:;" class="toggle-btn ml-auto"> <i class="bx bx-menu"></i>
+        </a>
+    </div>
+    <!--navigation-->
+    <ul class="metismenu" id="menu">
+        <li>
+            <a href="index.html">
+                <div class="parent-icon"><i class="bx bx-home-alt"></i>
+                </div>
+                <div class="menu-title">主页</div>
+            </a>
+        </li>
+        <li class="menu-label">传感器管理</li>
+        <li>
+            <a href="index.html">
+                <div class="parent-icon"><i class="bx bx-envelope"></i>
+                </div>
+                <div class="menu-title">传感器列表</div>
+            </a>
+        </li>
+        <li>
+            <a href="datacmp.html">
+                <div class="parent-icon"> <i class="bx bx-conversation"></i>
+                </div>
+                <div class="menu-title">索力数据对比</div>
+            </a>
+        </li>    
+        <li>
+            <a href="datacmp_freq.html">
+                <div class="parent-icon"> <i class="bx bx-conversation"></i>
+                </div>
+                <div class="menu-title">基频数据对比</div>
+            </a>
+        </li>  
+    </ul>
+    <!--end navigation-->
+</div>
+<!--end sidebar-wrapper-->
+            <div class="page-wrapper">
+                <div class="page-content-wrapper">
+                    <div class="page-content">
+                        <div class="card radius-15">
+                            <div class="card-body">
+                                <div class="card-title">
+                                    "s37" 实时数据
+                                </div>
+                                <hr>
+                                <div id="chart" class="chart chart-lg" style="height:500px" ></div>
+                                <form id="hiddenform">
+                                    <input type=hidden name="id_sensor" value="J4" />
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="./static/admin/assets/js/jquery.min.js"></script>
+	<script src="./static/admin/assets/js/popper.min.js"></script>
+	<script src="./static/admin/assets/js/bootstrap.min.js"></script>
+	<!-- Vector map JavaScript -->
+	<script src="./static/admin/assets/plugins/vectormap/jquery-jvectormap-2.0.2.min.js"></script>
+	<script src="./static/admin/assets/plugins/vectormap/jquery-jvectormap-world-mill-en.js"></script>
+	<script src="./static/admin/assets/plugins/vectormap/jquery-jvectormap-in-mill.js"></script>
+	<script src="./static/admin/assets/plugins/vectormap/jquery-jvectormap-us-aea-en.js"></script>
+	<script src="./static/admin/assets/plugins/vectormap/jquery-jvectormap-uk-mill-en.js"></script>
+	<script src="./static/admin/assets/plugins/vectormap/jquery-jvectormap-au-mill.js"></script>
+	<script src="./static/admin/assets/plugins/apexcharts-bundle/js/apexcharts.min.js"></script>
+    <!--plugins-->
+	<script src="./static/admin/assets/plugins/simplebar/js/simplebar.min.js"></script>
+	<script src="./static/admin/assets/plugins/metismenu/js/metisMenu.min.js"></script>
+	<script src="./static/admin/assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
+    <script src="./static/admin/assets/js/app.js"></script>
+    <!-- <script type="text/javascript">
+        $(function() {
+            $('#menu').metisMenu(); // ul.nav#side-menu
+        })
+    </script> -->
+    </body>
+    
+    <script> 
+        var idmax=0;
+        function ajaxRealData (id_sensor,content) {
+            var idsn=id_sensor;
+            var sensorIn = {
+                id : content,
+                name : id_sensor
+            }
+            //console.log(id_sensor);
+            $.ajax({
+                type: "GET",
+                url: "/admin/sensor/getrealdata.html",
+                data: sensorIn,
+                dataType: "json",//这里data传递过去的是序列化以后的字符串
+                success: function (data) {
+                    console.log(id_sensor)
+                    if(idmax != data.id[0].id){
+                        var count = Object.keys(data).length;
+                        if(count > 0) {
+                            new_flagDate=data['flagDate'];//如果小于0时间中断了故障
+                        }
+                        if (new_flagDate>0) {
+                            option.xAxis.data.shift();
+                            option.series[0].data.shift();
+                            option.xAxis.data.push(data.date[0].utctime );
+                            option.series[0].data.push(data.data[0][id_sensor]);
+                            chart.setOption(option);
+                        }
+                        idmax = data.id[0].id
+                    }else{
+                        console.log("not update");
+                    }
+                    
+                }
+            });
+        }
+        
+        //取出数据 打开网页执行一次
+        var histData= {"date":["2026-09-14 08:26:12","2026-09-14 09:26:12","2026-09-14 10:26:12","2026-09-14 11:26:12","2026-09-14 12:26:12","2026-09-14 13:26:12","2026-09-14 14:26:12","2026-09-14 15:26:12","2026-09-14 16:26:12","2026-09-14 17:26:12","2026-09-14 18:26:12","2026-09-14 19:26:12","2026-09-14 20:26:13","2026-09-14 21:26:12","2026-09-14 22:26:12","2026-09-14 23:26:13","2026-09-15 00:26:12","2026-09-15 01:26:12","2026-09-15 02:26:13","2026-09-15 03:26:12","2026-09-15 04:26:13","2026-09-15 05:26:13","2026-09-15 06:26:13","2026-09-15 07:26:13","2026-09-15 08:26:13","2026-09-15 09:26:13","2026-09-15 10:26:13","2026-09-15 11:26:13","2026-09-15 12:26:13","2026-09-15 13:26:13","2026-09-15 14:26:13","2026-09-15 15:26:13","2026-09-15 16:26:13","2026-09-15 17:26:13","2026-09-15 18:26:13","2026-09-15 19:26:13","2026-09-15 20:26:14","2026-09-15 21:26:14","2026-09-15 22:26:14","2026-09-15 23:26:14","2026-09-16 00:26:14","2026-09-16 01:26:14","2026-09-16 02:26:14","2026-09-16 03:26:14","2026-09-16 04:26:14","2026-09-16 05:26:14","2026-09-16 06:26:14","2026-09-16 07:26:14","2026-09-16 08:26:14","2026-09-16 09:26:14","2026-09-16 10:26:15","2026-09-16 11:26:14","2026-09-16 12:26:14","2026-09-16 13:26:14","2026-09-16 14:26:14","2026-09-16 15:26:15","2026-09-16 16:26:15","2026-09-16 17:26:14","2026-09-16 18:26:15","2026-09-16 19:26:15","2026-09-16 20:26:15","2026-09-16 21:26:15","2026-09-16 22:26:15","2026-09-16 23:26:15","2026-09-17 00:26:15","2026-09-17 01:26:15","2026-09-17 02:26:15","2026-09-17 03:26:15","2026-09-17 04:26:15","2026-09-17 05:26:15","2026-09-17 06:26:15","2026-09-17 07:26:15","2026-09-17 08:26:16","2026-09-17 09:26:16","2026-09-17 10:26:16","2026-09-17 11:26:16","2026-09-17 12:26:16","2026-09-17 13:26:16","2026-09-17 14:26:16","2026-09-17 15:26:16","2026-09-17 16:26:16","2026-09-17 17:26:16","2026-09-17 18:26:16","2026-09-17 19:26:16","2026-09-17 20:26:16","2026-09-17 20:30:15","2026-09-17 21:26:16","2026-09-17 22:26:16","2026-09-17 23:26:16","2026-09-17 23:34:47","2026-09-18 00:26:17","2026-09-18 01:26:17","2026-09-18 02:26:17","2026-09-18 03:26:16","2026-09-18 04:26:17","2026-09-18 05:26:17","2026-09-18 06:26:17","2026-09-18 07:26:17","2026-09-18 08:26:17","2026-09-18 09:26:17","2026-09-18 10:26:17","2026-09-18 11:26:17","2026-09-18 11:48:43","2026-09-18 12:26:17","2026-09-18 13:31:17","2026-09-18 14:26:18","2026-09-18 15:26:18","2026-09-18 16:26:18","2026-09-18 17:26:18","2026-09-18 18:26:18","2026-09-18 19:26:18","2026-09-18 20:26:18","2026-09-18 21:26:18","2026-09-18 22:26:18","2026-09-18 23:26:18","2026-09-19 00:26:18","2026-09-19 01:26:18","2026-09-19 02:26:18","2026-09-19 03:26:18","2026-09-19 04:26:18","2026-09-19 05:26:18","2026-09-19 06:26:18","2026-09-19 07:26:18","2026-09-19 08:26:19","2026-09-19 09:26:19","2026-09-19 10:26:19","2026-09-19 11:26:19","2026-09-19 12:26:19","2026-09-19 13:26:19","2026-09-19 14:26:19","2026-09-19 15:26:19","2026-09-19 16:26:19","2026-09-19 17:26:19","2026-09-19 18:26:19","2026-09-19 19:26:19","2026-09-19 20:26:19","2026-09-19 21:26:19","2026-09-22 00:14:59","2026-09-22 00:30:02","2026-09-23 14:54:49","2026-09-23 15:29:52","2026-09-23 16:29:52","2026-09-23 17:29:52","2026-09-23 18:29:52","2026-09-23 19:29:52","2026-09-23 20:29:52","2026-09-23 21:29:52","2026-09-23 22:29:52","2026-09-23 23:29:52","2026-09-24 00:29:52","2026-09-24 01:29:52","2026-09-24 02:29:52","2026-09-24 03:29:53","2026-09-24 04:29:52","2026-09-24 05:29:53","2026-09-24 06:29:53","2026-09-24 07:29:53","2026-09-24 08:29:53","2026-09-24 09:29:53","2026-09-24 10:29:53","2026-09-24 11:29:54","2026-09-24 12:29:53","2026-09-24 13:29:53","2026-09-24 14:29:54","2026-09-24 15:29:54","2026-09-24 16:29:54","2026-09-24 17:29:54","2026-09-24 18:29:54","2026-09-24 19:29:54","2026-09-24 20:29:54","2026-09-24 21:29:54","2026-09-24 22:29:54","2026-09-24 23:29:54","2026-09-25 00:29:54","2026-09-25 01:29:54","2026-09-25 11:29:55","2026-09-25 12:30:13","2026-09-25 13:30:02","2026-09-25 14:29:55","2026-09-25 15:29:55","2026-09-25 16:29:55","2026-09-25 17:29:55","2026-09-25 18:29:55","2026-09-25 19:29:55","2026-09-25 20:29:56","2026-09-25 21:29:55","2026-09-25 22:29:55","2026-09-25 23:29:56","2026-09-26 00:29:56","2026-09-26 01:29:56","2026-09-26 02:29:56","2026-09-26 10:29:56","2026-09-26 11:29:56","2026-09-26 12:29:57","2026-09-26 13:29:57","2026-09-26 14:29:57","2026-09-26 15:29:57","2026-09-26 16:29:57","2026-09-26 17:29:57","2026-09-26 18:29:57","2026-09-26 19:29:57","2026-09-26 20:29:57","2026-09-26 21:29:57","2026-09-26 22:29:57","2026-09-26 23:29:57","2026-09-27 00:29:57","2026-09-27 01:29:57","2026-09-27 02:29:57","2026-09-27 03:29:57","2026-09-27 04:29:58","2026-09-27 11:30:02","2026-09-27 12:29:58","2026-09-27 13:29:58","2026-09-27 14:29:58","2026-09-27 15:29:58","2026-09-27 16:29:59","2026-09-27 17:29:58","2026-09-27 18:29:59","2026-09-27 19:29:58","2026-09-27 20:29:59","2026-09-27 21:29:59","2026-09-27 22:29:59","2026-09-27 23:29:59","2026-09-28 00:29:59","2026-09-28 01:29:59","2026-09-28 10:30:00","2026-09-28 11:30:00","2026-09-28 12:30:00","2026-09-28 13:30:00","2026-09-28 14:30:00","2026-09-28 15:30:00","2026-09-28 16:30:00","2026-09-28 17:30:00","2026-09-28 18:30:00","2026-09-28 19:30:01","2026-09-28 20:30:00","2026-09-28 21:30:00","2026-09-28 22:30:00","2026-09-28 23:30:00","2026-09-29 11:30:02"],"data":[6335.53,6412.7,6445.62,6439.12,6457.67,6550.49,6485.12,6480.84,6504.38,6498.81,6489.29,6488.4,6506.8,6492.98,6507,6494.99,6476.82,6417.16,6463.45,6463.93,6458.84,6454.99,6221.59,6380.96,6393.91,6385.28,6458.14,6441.19,6379.72,6332.97,6419.18,6410.63,6403.43,6406.18,6436.08,6426.68,6376.32,6466.49,6405.56,6424.7,6444.76,6459.56,6443.64,6447.35,6331.72,6396.34,6311.15,6411.73,6336.99,6411.02,6374.38,6395.99,6362.71,6412.88,6438.77,6419.45,6385.82,6418.4,6459.18,6434.94,6433.49,6406.83,6469.28,6481.4,6491.19,6502.46,6468.5,6462.72,6475.89,6441.07,6442.28,6472.58,6462.03,6457.97,6460.11,6463.43,6496.99,6405.04,6449.69,6438.2,6449.29,6443.21,6465.8,6489.52,6467.52,6466.1,6466.89,6453.5,6449.22,6440.6,6493.54,6470.74,6433.14,6440.69,6457.75,6454.64,6468.68,6442.48,6490.15,6520.83,6519.69,6476.14,6475.76,6526.38,6506.18,6517.69,6519.27,6509.42,6504.96,6504.01,6484.29,6509.75,6462.23,6481.71,6515.82,6492.17,6485.31,6488.01,6472.25,6445.15,6484.53,6473.71,6521.38,6399.56,6440.46,6457.18,6474.46,6435.08,6434.46,6450.57,6452.15,6465.93,6456.14,6475.37,6465.46,6500.57,6477.64,6478.52,6478.64,6480.59,6477.26,6511.11,6487.67,6347.92,6388.25,6431.7,6408.58,6460.36,6453.36,6445.85,6464.19,6459.29,6458.3,6373.07,6415.36,6465.94,6423.82,6428.27,6438.23,6409.32,6429.45,6433.74,6383.87,6417.98,6442.32,6431.32,6360.48,6430.52,6427.12,6406.85,6416.57,6461.99,6440.37,6490.71,6478.58,6435.21,6475.21,6316.12,6414.65,6489.42,6441.96,6497.5,6450.87,6500.93,6493.92,6484.15,6445.81,6473.05,6455.72,6429.27,6450.15,6488.86,6463.43,6443.25,6425.02,6538.63,6496.67,6495.23,6503.67,6500.93,6511.5,6481.16,6491.03,6542.51,6471.51,6487.56,6474.04,6503.51,6467.39,6477.95,6478.1,6461.56,6503.61,6499.37,6450.47,6472.2,6477.6,6456.92,6463.65,6484.23,6472.41,6417.93,6471.21,6446.89,6453.84,6469.15,6445.78,6454.87,6457.72,6458.84,6458,6459.21,6442.91,6472.19,6462.05,6478.28,6466.92,6451.79,6411.49,6447.94]};
+        var stdForce= 6453.330791666666;
+        var new_flagDate=1;
+        var chart = echarts.init(document.getElementById("chart"));
+        var option = {
+    textStyle: { // 全局字体样式设置为白色
+        color: '#fff'
+    },
+    title: {
+        text: "s37",
+        textStyle: { // 标题字体白色
+            color: '#fff'
+        }
+    },
+    dataZoom: [
+        {
+            type: 'slider',//数据滑块
+            start: 0,
+            minSpan: 8,
+            bottom: '8%', // 调整位置避免与toolbox重叠
+            dataBackground: {
+                lineStyle: {
+                    color: '#95BC2F'
+                },
+                areaStyle: {
+                    color: '#95BC2F',
+                    opacity: 1,
+                }
+            },
+            handleStyle: {
+                color: '#fff' // 滑块手柄白色
+            },
+            labelStyle: {
+                color: '#fff' // 滑块标签白色
+            }
+        },
+        {
+            type: 'inside'//使鼠标在图表中时滚轮可用
+        }
+    ],
+    grid: {
+        left: '1%',   // 左边距1%
+        right: '1%',  // 右边距1%
+        bottom: '15%', // 底部留出空间
+        containLabel: true 
+    },
+    tooltip: { //弹出信息
+        trigger: 'axis',
+        // tooltip文字保持默认颜色（不设置为白色）
+        formatter: function(params) {
+            var result = params[0].axisValue;
+            params.forEach(function(item) {
+                result += '<br/>';
+                result += '<span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:' + item.color + '"></span>';
+                result += item.seriesName + "：";
+                result += isNaN(item.value) ? 0 : item.value;
+            });
+            return result;
+        },
+    },
+    toolbox: {
+        show: true,
+        left: 'center',
+        bottom: '0%',
+        iconStyle: { // toolbox图标白色
+            normal: {
+                color: '#fff'
+            },
+            emphasis: {
+                color: '#fff'
+            }
+        },
+        feature: {
+            dataZoom: { show: true },
+            mark: { show: true },
+            dataView: {
+                show: true,
+                readOnly: false,
+                textStyle: {
+                    color: '#000' // dataView内文字设为黑色以保证可读性
+                }
+            },
+            magicType: { show: true, type: ['line', 'bar'] },
+            restore: { show: true },
+            saveAsImage: { show: true }
+        }
+    },
+    legend: {
+        data: [],
+        textStyle: { // 图例文字白色
+            color: '#fff'
+        }
+    },
+    xAxis: {
+        data: histData.date,
+        axisLine: { // x轴线白色
+            lineStyle: {
+                color: '#fff'
+            }
+        },
+        axisLabel: { // x轴标签白色
+            color: '#fff'
+        },
+        axisTick: { // x轴刻度白色
+            lineStyle: {
+                color: '#fff'
+            }
+        }
+    },
+    yAxis: {
+        scale: true,
+        axisLine: { // y轴线白色
+            lineStyle: {
+                color: '#fff'
+            }
+        },
+        axisLabel: { // y轴标签白色
+            color: '#fff'
+        },
+        axisTick: { // y轴刻度白色
+            lineStyle: {
+                color: '#fff'
+            }
+        },
+        splitLine: { // 网格线半透明白色
+            lineStyle: {
+                color: 'rgba(255,255,255,0.3)'
+            }
+        }
+    },
+    series: [
+        {
+            name: '数据',
+            type: 'line',
+            data: histData.data
+        }
+    ]
+};
+        
+        $(function () {
+            var id_sensor="J4" ;
+            var content="s37" ;
+            chart.setOption(option)
+            function refresh () {
+                ajaxRealData(id_sensor,content);   //如果数据异常停止更新
+                return;        
+            }
+        
+            /* static build: live polling disabled */
+        
+            window.onresize = function () {
+                chart.resize();
+            };
+        }());
+     </script>
+    
+</html>

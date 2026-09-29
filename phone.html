@@ -1,8 +1,8 @@
 <html lang="zh-CN">
 <head>
-    <link href="static/admin/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="static/admin/assets/css/icons.css" />
-    <link rel="stylesheet" href="static/admin/font-awesome-4.7.0/css/font-awesome.css">
+    <link href="./static/admin/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./static/admin/assets/css/icons.css" />
+    <link rel="stylesheet" href="./static/admin/font-awesome-4.7.0/css/font-awesome.css">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
     <title>南洲大桥在线索力监测</title>
@@ -361,13 +361,122 @@
             }
             .header-left img { height: 34px; }
         }
+
+        /* ==================== 科技指挥中心风增强层 ==================== */
+        html, body {
+            background:
+                radial-gradient(600px 300px at 50% -8%, rgba(26,140,255,.20), transparent 70%),
+                radial-gradient(500px 360px at 50% 108%, rgba(39,230,255,.10), transparent 70%),
+                #04101f !important;
+        }
+        .top-bar{
+            background:linear-gradient(180deg, rgba(6,24,48,.98) 0%, rgba(6,20,40,.75) 100%) !important;
+            border-bottom:1px solid rgba(39,230,255,.22);
+            box-shadow:0 0 14px rgba(39,230,255,.18);
+        }
+        .header-left h4{
+            color:#f2fcff !important;
+            text-shadow:0 0 12px rgba(39,230,255,.65);
+            letter-spacing:1px;
+        }
+        .header-left img{border:1px solid rgba(39,230,255,.3);box-shadow:0 0 10px rgba(39,230,255,.35);}
+        .time-clock{color:#cdefff !important;text-shadow:0 0 8px rgba(39,230,255,.55);}
+        .nav-menu{
+            background:rgba(6,24,48,.92) !important;
+            border-bottom:1px solid rgba(39,230,255,.18);
+        }
+        .nav-menu a{
+            background:rgba(26,140,255,.14) !important;
+            border:1px solid rgba(39,230,255,.28) !important;
+            transition:all .25s;
+        }
+        .nav-menu a:hover,.nav-menu a:active{
+            background:rgba(39,230,255,.3) !important;
+            box-shadow:0 0 12px rgba(39,230,255,.5);
+        }
+        .scene-area{background:transparent !important;}
+        .tower-card{
+            background:linear-gradient(160deg, rgba(12,46,88,.55), rgba(5,20,42,.42)) !important;
+            border:1px solid rgba(39,230,255,.25) !important;
+            box-shadow:inset 0 0 20px rgba(26,140,255,.10), 0 4px 14px rgba(0,0,0,.35) !important;
+            -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+            position:relative;
+        }
+        /* 手机版卡片四角角标 */
+        .tower-card::before,.tower-card::after{
+            content:"";position:absolute;width:12px;height:12px;pointer-events:none;z-index:5;
+            background:
+                linear-gradient(#27e6ff,#27e6ff) left top/100% 2px no-repeat,
+                linear-gradient(#27e6ff,#27e6ff) left top/2px 100% no-repeat;
+            filter:drop-shadow(0 0 3px rgba(39,230,255,.8));
+        }
+        .tower-card::before{top:-1px;left:-1px;}
+        .tower-card::after{bottom:-1px;right:-1px;transform:rotate(180deg);}
+        .tower-title{display:flex;align-items:center;gap:6px;}
+        .tower-title::before{
+            content:"";width:3px;height:14px;border-radius:2px;flex-shrink:0;
+            background:linear-gradient(180deg,#27e6ff,#1a8cff);
+            box-shadow:0 0 7px rgba(39,230,255,.8);
+        }
+        .status-num,.time-clock{font-variant-numeric:tabular-nums;}
+        .monitor-footer .info-bar{position:relative;overflow:hidden;}
+        .monitor-footer .info-bar::after{
+            content:"";position:absolute;top:0;left:-30%;width:30%;height:100%;
+            background:linear-gradient(100deg,transparent,rgba(39,230,255,.12),transparent);
+            animation:phoneScan 6s ease-in-out infinite;
+        }
+        @keyframes phoneScan{0%{left:-30%;}55%,100%{left:120%;}}
+        .tower-title{color:#f2fcff !important;text-shadow:0 0 10px rgba(39,230,255,.55);}
+        .btn-jump{
+            background:linear-gradient(180deg, rgba(39,230,255,.22), rgba(26,140,255,.12)) !important;
+            border:1px solid rgba(39,230,255,.45) !important;
+            transition:all .25s;
+        }
+        .btn-jump:active{background:rgba(39,230,255,.4) !important;box-shadow:0 0 12px rgba(39,230,255,.55);}
+        .data-panel{
+            background:linear-gradient(180deg, rgba(8,30,60,.6) 0%, rgba(5,18,38,.55)) !important;
+            border-top:1px solid rgba(39,230,255,.22);
+            box-shadow:0 -6px 24px rgba(0,0,0,.35), inset 0 0 30px rgba(26,140,255,.06);
+        }
+        .status-item{
+            background:linear-gradient(180deg, rgba(12,46,88,.55), rgba(6,22,46,.45)) !important;
+            border:1px solid rgba(39,230,255,.22) !important;
+            box-shadow:inset 0 0 16px rgba(26,140,255,.08);
+            transition:all .25s;
+        }
+        .status-item:active{border-color:rgba(39,230,255,.55);box-shadow:0 0 14px rgba(39,230,255,.3);}
+        .status-num{text-shadow:0 0 10px currentColor;}
+        .btn2{
+            background:rgba(26,140,255,.18) !important;
+            border:1px solid rgba(39,230,255,.4) !important;
+            color:#eafaff !important;
+            transition:all .25s;
+        }
+        .btn2.active{
+            background:rgba(39,230,255,.32) !important;
+            border-color:#27e6ff !important;
+            box-shadow:0 0 12px rgba(39,230,255,.5);
+        }
+        .btn2:active{background-color:rgba(39,230,255,.45) !important;}
+        .monitor-footer .info-bar{
+            background:linear-gradient(90deg, rgba(12,46,88,.55), rgba(8,30,60,.42), rgba(12,46,88,.55)) !important;
+            border:1px solid rgba(39,230,255,.22) !important;
+            box-shadow:inset 0 0 18px rgba(26,140,255,.08);
+        }
+        .top-bar,.tower-card,.status-item{animation:phoneFade .6s ease both;}
+        .tower-card{animation-delay:.1s;}
+        .status-item:nth-child(2){animation-delay:.15s;}
+        .status-item:nth-child(3){animation-delay:.2s;}
+        .status-item:nth-child(4){animation-delay:.25s;}
+        @keyframes phoneFade{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
+        /* ==================== 科技风增强层 END ==================== */
     </style>
 </head>
 <body>
     <!-- 顶部栏 -->
     <div class="top-bar">
         <div class="header-left">
-            <img src="static/admin/hcmlogo.png" alt="logo">
+            <img src="http://1.117.138.94/hcmLogo.png" alt="logo">
             <h4>南洲大桥索力监测</h4>
         </div>
         <div class="header-right">
@@ -445,9 +554,9 @@
     <!-- 底部统计 -->
     <div class="monitor-footer">
         <div class="info-bar">
-            累计监测：156天&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            累积数据：2507组&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            最新数据时间："2026-09-27 13:29:58"        </div>
+            累计监测：158天&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            累积数据：2538组&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            最新数据时间："2026-09-29 15:30:01"        </div>
     </div>
     </div>
 
@@ -460,12 +569,13 @@
         <button class="btn2" id="test4">t4</button>
     </div>
 </body>
-<script src="static/admin/js/bootstrap.min.js"></script>
-<script src="static/admin/assets/js/jquery.min.js"></script>
-<script src="static/admin/assets/echarts.min.js"></script>
+<script src="./static/admin/js/bootstrap.min.js"></script>
+<script src="./static/admin/assets/js/jquery.min.js"></script>
+<script src="./static/admin/assets/echarts.min.js"></script>
 
+<script type="application/json" id="sensor-data">[{"id":1,"id_sensor":"s01","content":"A9","x1":11.47,"y1":33.92483076296918,"z1":0.58,"x2":11.47,"y2":-4.81,"z2":58.13,"ind":9,"value":7770.036},{"id":2,"id_sensor":"s02","content":"A10","x1":11.47,"y1":35.7,"z1":0.58,"x2":11.47,"y2":-4.81,"z2":59.28,"ind":10,"value":7853.296},{"id":3,"id_sensor":"s03","content":"A11","x1":11.47,"y1":37,"z1":0.58,"x2":11.47,"y2":-4.81,"z2":60.42,"ind":11,"value":8231.782},{"id":4,"id_sensor":"s04","content":"A12","x1":11.47,"y1":38.548771172828,"z1":0.58,"x2":11.47,"y2":-4.81,"z2":61.56,"ind":12,"value":7718.816},{"id":5,"id_sensor":"s05","content":"A5","x1":11.47,"y1":27.84619911284354,"z1":0.58,"x2":11.47,"y2":-4.81,"z2":53.38,"ind":5,"value":6336.221},{"id":6,"id_sensor":"s06","content":"A6","x1":11.47,"y1":29.350811312638957,"z1":0.58,"x2":11.47,"y2":-4.81,"z2":54.72,"ind":6,"value":5484.343},{"id":7,"id_sensor":"s07","content":"A7","x1":11.47,"y1":30.88581364959031,"z1":0.58,"x2":11.47,"y2":-4.81,"z2":55.86,"ind":7,"value":7933.956},{"id":8,"id_sensor":"s08","content":"A8","x1":11.47,"y1":32.407626571939744,"z1":0.58,"x2":11.47,"y2":-4.81,"z2":57,"ind":8,"value":7681.892},{"id":9,"id_sensor":"s09","content":"A1","x1":11.47,"y1":21.78041104134483,"z1":0.58,"x2":11.47,"y2":-4.81,"z2":49.02,"ind":1,"value":3300.001},{"id":10,"id_sensor":"s10","content":"A2","x1":11.47,"y1":23.297791476193257,"z1":0.58,"x2":11.47,"y2":-4.81,"z2":50.16,"ind":2,"value":3446.865},{"id":11,"id_sensor":"s11","content":"A3","x1":11.47,"y1":24.80328310019483,"z1":0.58,"x2":11.47,"y2":-4.81,"z2":51.3,"ind":3,"value":4661.554},{"id":12,"id_sensor":"s12","content":"A4","x1":11.47,"y1":26.349677984849176,"z1":0.58,"x2":11.47,"y2":-4.81,"z2":52.44,"ind":4,"value":5663.569},{"id":13,"id_sensor":"s13","content":"J1","x1":11.47,"y1":23.382236972760985,"z1":0.6,"x2":11.47,"y2":-4.81,"z2":-61.33,"ind":13,"value":3996.542},{"id":14,"id_sensor":"s14","content":"J2","x1":11.47,"y1":24.91224182982105,"z1":0.6,"x2":11.47,"y2":-4.81,"z2":-64.67,"ind":14,"value":4392.362},{"id":15,"id_sensor":"s15","content":"J3","x1":11.47,"y1":26.42576469474754,"z1":0.6,"x2":11.47,"y2":-4.81,"z2":-68.01,"ind":15,"value":4433.217},{"id":16,"id_sensor":"s16","content":"J4","x1":11.47,"y1":27.956953820845317,"z1":0.6,"x2":11.47,"y2":-4.81,"z2":-71.35,"ind":16,"value":6144.372},{"id":17,"id_sensor":"s17","content":"J5","x1":11.47,"y1":29.46549850507506,"z1":0.6,"x2":11.47,"y2":-4.81,"z2":-74.69,"ind":17,"value":6613.517},{"id":18,"id_sensor":"s18","content":"J6","x1":11.47,"y1":30.997424711238715,"z1":0.6,"x2":11.47,"y2":-4.81,"z2":-78.03,"ind":18,"value":7303.4},{"id":19,"id_sensor":"s19","content":"J7","x1":11.47,"y1":33.22440039421676,"z1":2.12,"x2":11.47,"y2":-4.81,"z2":-81.37,"ind":19,"value":7625.844},{"id":20,"id_sensor":"s20","content":"J8","x1":11.47,"y1":34.75373143808783,"z1":2.12,"x2":11.47,"y2":-4.81,"z2":-84.71,"ind":20,"value":7492.598},{"id":21,"id_sensor":"s21","content":"J9","x1":11.47,"y1":36.25504965538272,"z1":2.12,"x2":11.47,"y2":-4.81,"z2":-88.05,"ind":21,"value":8297.506},{"id":22,"id_sensor":"s22","content":"J10","x1":11.47,"y1":37.76807580199575,"z1":2.12,"x2":11.47,"y2":-4.81,"z2":-91.39,"ind":22,"value":8546.346},{"id":23,"id_sensor":"s23","content":"J11","x1":11.47,"y1":39.27801867893636,"z1":2.12,"x2":11.47,"y2":-4.81,"z2":-94.73,"ind":23,"value":7773.582},{"id":24,"id_sensor":"s24","content":"J12","x1":11.47,"y1":40.82093809257101,"z1":2.12,"x2":11.47,"y2":-4.81,"z2":-98.07,"ind":24,"value":8604.733},{"id":25,"id_sensor":"s25","content":"A9","x1":-11.3,"y1":33.92483076296918,"z1":0.58,"x2":-11.3,"y2":-4.81,"z2":58.14,"ind":33,"value":7283.503},{"id":26,"id_sensor":"s26","content":"A10","x1":-11.3,"y1":35.7,"z1":0.58,"x2":-11.3,"y2":-4.81,"z2":59.28,"ind":34,"value":9114.655},{"id":27,"id_sensor":"s27","content":"A11","x1":-11.3,"y1":37,"z1":0.58,"x2":-11.3,"y2":-4.81,"z2":60.42,"ind":35,"value":8173.33},{"id":28,"id_sensor":"s28","content":"A12","x1":-11.3,"y1":38.548771172828,"z1":0.58,"x2":-11.3,"y2":-4.81,"z2":61.56,"ind":36,"value":7767.649},{"id":29,"id_sensor":"s29","content":"A5","x1":-11.3,"y1":27.84619911284354,"z1":0.58,"x2":-11.3,"y2":-4.81,"z2":53.38,"ind":29,"value":5762.048},{"id":30,"id_sensor":"s30","content":"A6","x1":-11.3,"y1":29.350811312638957,"z1":0.58,"x2":-11.3,"y2":-4.81,"z2":54.72,"ind":30,"value":5816.991},{"id":31,"id_sensor":"s31","content":"A7","x1":-11.3,"y1":30.88581364959031,"z1":0.58,"x2":-11.3,"y2":-4.81,"z2":55.86,"ind":31,"value":6768.314},{"id":32,"id_sensor":"s32","content":"A8","x1":-11.3,"y1":32.407626571939744,"z1":0.58,"x2":-11.3,"y2":-4.81,"z2":57,"ind":32,"value":8288.386},{"id":33,"id_sensor":"s33","content":"A1","x1":-11.3,"y1":21.78041104134483,"z1":0.58,"x2":-11.3,"y2":-4.81,"z2":49.02,"ind":25,"value":3465.416},{"id":34,"id_sensor":"s34","content":"A2","x1":-11.3,"y1":23.297791476193257,"z1":0.58,"x2":-11.3,"y2":-4.81,"z2":50.16,"ind":26,"value":3282.366},{"id":35,"id_sensor":"s35","content":"A3","x1":-11.3,"y1":24.80328310019483,"z1":0.58,"x2":-11.3,"y2":-4.81,"z2":51.3,"ind":27,"value":3550.259},{"id":36,"id_sensor":"s36","content":"A4","x1":-11.3,"y1":26.349677984849176,"z1":0.58,"x2":-11.3,"y2":-4.81,"z2":52.44,"ind":28,"value":4378.232},{"id":37,"id_sensor":"s37","content":"J4","x1":-11.3,"y1":27.956953820845317,"z1":0.6,"x2":-11.3,"y2":-4.81,"z2":-71.35,"ind":40,"value":6519.137},{"id":38,"id_sensor":"s38","content":"J3","x1":-11.3,"y1":26.42576469474754,"z1":0.6,"x2":-11.3,"y2":-4.81,"z2":-68.01,"ind":39,"value":4772.635},{"id":39,"id_sensor":"s39","content":"J2","x1":-11.3,"y1":24.91224182982105,"z1":0.6,"x2":-11.3,"y2":-4.81,"z2":-64.67,"ind":38,"value":4446.708},{"id":40,"id_sensor":"s40","content":"J1","x1":-11.3,"y1":23.382236972760985,"z1":0.6,"x2":-11.3,"y2":-4.81,"z2":-61.33,"ind":37,"value":3957.88},{"id":41,"id_sensor":"s41","content":"J8","x1":-11.3,"y1":34.75373143808783,"z1":2.12,"x2":-11.3,"y2":-4.81,"z2":-84.71,"ind":44,"value":7287.383},{"id":42,"id_sensor":"s42","content":"J7","x1":-11.3,"y1":33.22440039421676,"z1":2.12,"x2":-11.3,"y2":-4.81,"z2":-81.37,"ind":43,"value":7931.683},{"id":43,"id_sensor":"s43","content":"J6","x1":-11.3,"y1":30.997424711238715,"z1":0.6,"x2":-11.3,"y2":-4.81,"z2":-78.03,"ind":42,"value":7281.043},{"id":44,"id_sensor":"s44","content":"J5","x1":-11.3,"y1":29.46549850507506,"z1":0.6,"x2":-11.3,"y2":-4.81,"z2":-74.69,"ind":41,"value":6577.644},{"id":45,"id_sensor":"s45","content":"J12","x1":-11.3,"y1":40.82093809257101,"z1":2.12,"x2":-11.3,"y2":-4.81,"z2":-98.07,"ind":48,"value":8551.711},{"id":46,"id_sensor":"s46","content":"J11","x1":-11.3,"y1":39.27801867893636,"z1":2.12,"x2":-11.3,"y2":-4.81,"z2":-94.73,"ind":47,"value":7820.569},{"id":47,"id_sensor":"s47","content":"J10","x1":-11.3,"y1":37.76807580199575,"z1":2.12,"x2":-11.3,"y2":-4.81,"z2":-91.39,"ind":46,"value":7680.096},{"id":48,"id_sensor":"s48","content":"J9","x1":-11.3,"y1":36.25504965538272,"z1":2.12,"x2":-11.3,"y2":-4.81,"z2":-88.05,"ind":45,"value":7767.354}]</script>
 <script type="module">
-var sensor = [{"id":1,"id_sensor":"s01","content":"A9","x1":11.47,"y1":33.92483076296918,"z1":0.58,"x2":11.47,"y2":-4.81,"z2":58.13,"ind":9,"value":7761.692},{"id":2,"id_sensor":"s02","content":"A10","x1":11.47,"y1":35.7,"z1":0.58,"x2":11.47,"y2":-4.81,"z2":59.28,"ind":10,"value":7890.803},{"id":3,"id_sensor":"s03","content":"A11","x1":11.47,"y1":37,"z1":0.58,"x2":11.47,"y2":-4.81,"z2":60.42,"ind":11,"value":8205.318},{"id":4,"id_sensor":"s04","content":"A12","x1":11.47,"y1":38.548771172828,"z1":0.58,"x2":11.47,"y2":-4.81,"z2":61.56,"ind":12,"value":7767.272},{"id":5,"id_sensor":"s05","content":"A5","x1":11.47,"y1":27.84619911284354,"z1":0.58,"x2":11.47,"y2":-4.81,"z2":53.38,"ind":5,"value":6072.941},{"id":6,"id_sensor":"s06","content":"A6","x1":11.47,"y1":29.350811312638957,"z1":0.58,"x2":11.47,"y2":-4.81,"z2":54.72,"ind":6,"value":5740.114},{"id":7,"id_sensor":"s07","content":"A7","x1":11.47,"y1":30.88581364959031,"z1":0.58,"x2":11.47,"y2":-4.81,"z2":55.86,"ind":7,"value":7955.9},{"id":8,"id_sensor":"s08","content":"A8","x1":11.47,"y1":32.407626571939744,"z1":0.58,"x2":11.47,"y2":-4.81,"z2":57,"ind":8,"value":7708.581},{"id":9,"id_sensor":"s09","content":"A1","x1":11.47,"y1":21.78041104134483,"z1":0.58,"x2":11.47,"y2":-4.81,"z2":49.02,"ind":1,"value":3306.495},{"id":10,"id_sensor":"s10","content":"A2","x1":11.47,"y1":23.297791476193257,"z1":0.58,"x2":11.47,"y2":-4.81,"z2":50.16,"ind":2,"value":3469.646},{"id":11,"id_sensor":"s11","content":"A3","x1":11.47,"y1":24.80328310019483,"z1":0.58,"x2":11.47,"y2":-4.81,"z2":51.3,"ind":3,"value":4716.7},{"id":12,"id_sensor":"s12","content":"A4","x1":11.47,"y1":26.349677984849176,"z1":0.58,"x2":11.47,"y2":-4.81,"z2":52.44,"ind":4,"value":5675.933},{"id":13,"id_sensor":"s13","content":"J1","x1":11.47,"y1":23.382236972760985,"z1":0.6,"x2":11.47,"y2":-4.81,"z2":-61.33,"ind":13,"value":4000.554},{"id":14,"id_sensor":"s14","content":"J2","x1":11.47,"y1":24.91224182982105,"z1":0.6,"x2":11.47,"y2":-4.81,"z2":-64.67,"ind":14,"value":4478.113},{"id":15,"id_sensor":"s15","content":"J3","x1":11.47,"y1":26.42576469474754,"z1":0.6,"x2":11.47,"y2":-4.81,"z2":-68.01,"ind":15,"value":4292.573},{"id":16,"id_sensor":"s16","content":"J4","x1":11.47,"y1":27.956953820845317,"z1":0.6,"x2":11.47,"y2":-4.81,"z2":-71.35,"ind":16,"value":6129.797},{"id":17,"id_sensor":"s17","content":"J5","x1":11.47,"y1":29.46549850507506,"z1":0.6,"x2":11.47,"y2":-4.81,"z2":-74.69,"ind":17,"value":6768.726},{"id":18,"id_sensor":"s18","content":"J6","x1":11.47,"y1":30.997424711238715,"z1":0.6,"x2":11.47,"y2":-4.81,"z2":-78.03,"ind":18,"value":7370.643},{"id":19,"id_sensor":"s19","content":"J7","x1":11.47,"y1":33.22440039421676,"z1":2.12,"x2":11.47,"y2":-4.81,"z2":-81.37,"ind":19,"value":7604.896},{"id":20,"id_sensor":"s20","content":"J8","x1":11.47,"y1":34.75373143808783,"z1":2.12,"x2":11.47,"y2":-4.81,"z2":-84.71,"ind":20,"value":7398.272},{"id":21,"id_sensor":"s21","content":"J9","x1":11.47,"y1":36.25504965538272,"z1":2.12,"x2":11.47,"y2":-4.81,"z2":-88.05,"ind":21,"value":8434.62},{"id":22,"id_sensor":"s22","content":"J10","x1":11.47,"y1":37.76807580199575,"z1":2.12,"x2":11.47,"y2":-4.81,"z2":-91.39,"ind":22,"value":7665.987},{"id":23,"id_sensor":"s23","content":"J11","x1":11.47,"y1":39.27801867893636,"z1":2.12,"x2":11.47,"y2":-4.81,"z2":-94.73,"ind":23,"value":7992.47},{"id":24,"id_sensor":"s24","content":"J12","x1":11.47,"y1":40.82093809257101,"z1":2.12,"x2":11.47,"y2":-4.81,"z2":-98.07,"ind":24,"value":7886.005},{"id":25,"id_sensor":"s25","content":"A9","x1":-11.3,"y1":33.92483076296918,"z1":0.58,"x2":-11.3,"y2":-4.81,"z2":58.14,"ind":33,"value":7728.463},{"id":26,"id_sensor":"s26","content":"A10","x1":-11.3,"y1":35.7,"z1":0.58,"x2":-11.3,"y2":-4.81,"z2":59.28,"ind":34,"value":9294.059},{"id":27,"id_sensor":"s27","content":"A11","x1":-11.3,"y1":37,"z1":0.58,"x2":-11.3,"y2":-4.81,"z2":60.42,"ind":35,"value":8611.722},{"id":28,"id_sensor":"s28","content":"A12","x1":-11.3,"y1":38.548771172828,"z1":0.58,"x2":-11.3,"y2":-4.81,"z2":61.56,"ind":36,"value":7629.488},{"id":29,"id_sensor":"s29","content":"A5","x1":-11.3,"y1":27.84619911284354,"z1":0.58,"x2":-11.3,"y2":-4.81,"z2":53.38,"ind":29,"value":5510.128},{"id":30,"id_sensor":"s30","content":"A6","x1":-11.3,"y1":29.350811312638957,"z1":0.58,"x2":-11.3,"y2":-4.81,"z2":54.72,"ind":30,"value":5842.449},{"id":31,"id_sensor":"s31","content":"A7","x1":-11.3,"y1":30.88581364959031,"z1":0.58,"x2":-11.3,"y2":-4.81,"z2":55.86,"ind":31,"value":6845.044},{"id":32,"id_sensor":"s32","content":"A8","x1":-11.3,"y1":32.407626571939744,"z1":0.58,"x2":-11.3,"y2":-4.81,"z2":57,"ind":32,"value":8228.208},{"id":33,"id_sensor":"s33","content":"A1","x1":-11.3,"y1":21.78041104134483,"z1":0.58,"x2":-11.3,"y2":-4.81,"z2":49.02,"ind":25,"value":3466.768},{"id":34,"id_sensor":"s34","content":"A2","x1":-11.3,"y1":23.297791476193257,"z1":0.58,"x2":-11.3,"y2":-4.81,"z2":50.16,"ind":26,"value":3371.846},{"id":35,"id_sensor":"s35","content":"A3","x1":-11.3,"y1":24.80328310019483,"z1":0.58,"x2":-11.3,"y2":-4.81,"z2":51.3,"ind":27,"value":3701.595},{"id":36,"id_sensor":"s36","content":"A4","x1":-11.3,"y1":26.349677984849176,"z1":0.58,"x2":-11.3,"y2":-4.81,"z2":52.44,"ind":28,"value":4779.028},{"id":37,"id_sensor":"s37","content":"J4","x1":-11.3,"y1":27.956953820845317,"z1":0.6,"x2":-11.3,"y2":-4.81,"z2":-71.35,"ind":40,"value":6503.605},{"id":38,"id_sensor":"s38","content":"J3","x1":-11.3,"y1":26.42576469474754,"z1":0.6,"x2":-11.3,"y2":-4.81,"z2":-68.01,"ind":39,"value":4561.151},{"id":39,"id_sensor":"s39","content":"J2","x1":-11.3,"y1":24.91224182982105,"z1":0.6,"x2":-11.3,"y2":-4.81,"z2":-64.67,"ind":38,"value":4507.033},{"id":40,"id_sensor":"s40","content":"J1","x1":-11.3,"y1":23.382236972760985,"z1":0.6,"x2":-11.3,"y2":-4.81,"z2":-61.33,"ind":37,"value":3938.186},{"id":41,"id_sensor":"s41","content":"J8","x1":-11.3,"y1":34.75373143808783,"z1":2.12,"x2":-11.3,"y2":-4.81,"z2":-84.71,"ind":44,"value":7190.812},{"id":42,"id_sensor":"s42","content":"J7","x1":-11.3,"y1":33.22440039421676,"z1":2.12,"x2":-11.3,"y2":-4.81,"z2":-81.37,"ind":43,"value":7899.281},{"id":43,"id_sensor":"s43","content":"J6","x1":-11.3,"y1":30.997424711238715,"z1":0.6,"x2":-11.3,"y2":-4.81,"z2":-78.03,"ind":42,"value":7224.957},{"id":44,"id_sensor":"s44","content":"J5","x1":-11.3,"y1":29.46549850507506,"z1":0.6,"x2":-11.3,"y2":-4.81,"z2":-74.69,"ind":41,"value":6625.879},{"id":45,"id_sensor":"s45","content":"J12","x1":-11.3,"y1":40.82093809257101,"z1":2.12,"x2":-11.3,"y2":-4.81,"z2":-98.07,"ind":48,"value":8457.584},{"id":46,"id_sensor":"s46","content":"J11","x1":-11.3,"y1":39.27801867893636,"z1":2.12,"x2":-11.3,"y2":-4.81,"z2":-94.73,"ind":47,"value":7965.552},{"id":47,"id_sensor":"s47","content":"J10","x1":-11.3,"y1":37.76807580199575,"z1":2.12,"x2":-11.3,"y2":-4.81,"z2":-91.39,"ind":46,"value":7788.973},{"id":48,"id_sensor":"s48","content":"J9","x1":-11.3,"y1":36.25504965538272,"z1":2.12,"x2":-11.3,"y2":-4.81,"z2":-88.05,"ind":45,"value":8243.498}];
+var sensor = JSON.parse(document.getElementById('sensor-data').textContent);
 
 import * as THREE from 'three'
 import { OrbitControls } from './static/admin/3D/js/OrbitControls.js'
@@ -686,7 +796,7 @@ function handle3DPick(clientX, clientY) {
                 showInfobox();
                 $.ajax({
                     type: 'GET',
-                    url: "api/getcabledata_" + item.id_sensor + ".json",
+                    url: "/admin/nanzhou/getcabledata.html",
                     data: { id: item.id_sensor, tower: towerindex },
                     dataType: 'json',
                     success: function(data) {
@@ -722,7 +832,7 @@ var mChart = null;
 function parseApiData(data) {
     if (data == null) return null;
     if (typeof data === 'string') {
-        try { return jQuery.parseJSON(data); } catch (e) { return null; }
+        try { return jQuery.parseJSON(typeof data === "string" ? data : JSON.stringify(data)); } catch (e) { return null; }
     }
     return data;
 }
@@ -902,8 +1012,8 @@ myChart.on('click', function(params) {
     showInfobox();
     towerindex = currentSide === 'downstream' ? 2 : 1;
     var apiUrl = currentSide === 'downstream'
-        ? "api/getcabledata3_" + params.name + ".json"
-        : "api/getcabledata2_" + params.name + ".json";
+        ? "/admin/nanzhou/getcabledata3.html"
+        : "/admin/nanzhou/getcabledata2.html";
     $.ajax({
         type: 'GET',
         url: apiUrl,
@@ -923,7 +1033,7 @@ document.getElementById('closeInfobox').addEventListener('click', hideInfobox);
 function getData(mode, btn) {
     $.ajax({
         type: 'GET',
-        url: "api/getdatasingle_" + document.getElementById('infoID').name + "_" + towerindex + "_" + mode + ".json",
+        url: "/admin/nanzhou/getdatasingle.html",
         data: {
             mode: mode,
             id: document.getElementById('infoID').name,

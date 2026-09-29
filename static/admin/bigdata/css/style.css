@@ -120,5 +120,229 @@ to { transform: rotate(-360deg)}
 to { transform: rotate(360deg)}
 }
 
+/* ==================== 科技指挥中心风增强层 ==================== */
+:root{
+	--tech-cyan:#27e6ff;
+	--tech-cyan-soft:rgba(39,230,255,.55);
+	--tech-blue:#1a8cff;
+	--tech-panel:rgba(9,32,64,.42);
+	--tech-panel-strong:rgba(8,26,52,.72);
+	--tech-line:rgba(39,230,255,.22);
+	--tech-text:#dff6ff;
+	--tech-glow:0 0 18px rgba(39,230,255,.28);
+}
+
+/* 深色底 + 网格 + 顶部光晕 */
+body{
+	background:#04101f !important;
+	background-image:
+		radial-gradient(1200px 500px at 50% -10%, rgba(26,140,255,.18), transparent 70%),
+		radial-gradient(900px 600px at 50% 115%, rgba(39,230,255,.10), transparent 70%),
+		linear-gradient(rgba(39,230,255,.035) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(39,230,255,.035) 1px, transparent 1px) !important;
+	background-size:100% 100%,100% 100%,44px 44px,44px 44px !important;
+	background-attachment:fixed !important;
+	color:var(--tech-text);
+}
+
+/* 顶部标题区 */
+.head{
+	background:linear-gradient(180deg, rgba(4,20,40,.92) 0%, rgba(4,16,31,0) 100%);
+	height:84px;
+	animation:techFadeDown .7s ease both;
+}
+.head::after{
+	content:"";position:absolute;left:6%;right:6%;bottom:6px;height:2px;
+	background:linear-gradient(90deg,transparent,rgba(39,230,255,.15),var(--tech-cyan-soft),rgba(39,230,255,.15),transparent);
+	box-shadow:0 0 12px rgba(39,230,255,.45);
+}
+.head h4{
+	color:#f2fcff;
+	text-shadow:0 0 14px rgba(39,230,255,.65),0 0 34px rgba(26,140,255,.45);
+	letter-spacing:2px;
+}
+.head .time{
+	color:#cdefff;
+	text-shadow:0 0 10px rgba(39,230,255,.5);
+	letter-spacing:1px;
+}
+
+/* 菜单角标改青蓝辉光 */
+.menu li:before,.menu li:after,.menu li a:before,.menu li a:after{opacity:.65;transition:all .25s;}
+.head .menu li a{padding:0 12px;letter-spacing:2px;}
+.head .menu li a:hover{color:var(--tech-cyan);text-shadow:0 0 10px rgba(39,230,255,.8);}
+.menu li a:hover:before,.menu li a:hover:after,.menu li:hover:before,.menu li:hover:after{
+	border-color:var(--tech-cyan);opacity:1;
+	filter:drop-shadow(0 0 4px rgba(39,230,255,.8));
+}
+
+/* logo */
+.logo img{
+	border:1px solid var(--tech-line) !important;
+	box-shadow:0 0 14px rgba(39,230,255,.35);
+}
+
+/* 面板标题 */
+.tit{
+	color:#f2fcff;
+	text-shadow:0 0 12px rgba(39,230,255,.55);
+	letter-spacing:1px;
+}
+
+/* 玻璃拟态卡片 */
+.boxnav{
+	position:relative;
+	background:linear-gradient(160deg, rgba(12,46,88,.5), rgba(5,20,42,.38)) !important;
+	border:1px solid var(--tech-line) !important;
+	box-shadow:inset 0 0 26px rgba(26,140,255,.10), 0 6px 22px rgba(0,0,0,.35) !important;
+	-webkit-backdrop-filter:blur(8px);
+	backdrop-filter:blur(8px);
+	transition:box-shadow .3s, border-color .3s, transform .3s;
+}
+
+/* 卡片四角科技角标 */
+.box{border:none !important;animation:techFadeUp .7s ease .15s both;}
+.box::before,.box::after{
+	content:"";position:absolute;width:16px;height:16px;opacity:1;pointer-events:none;z-index:5;
+	background:
+		linear-gradient(var(--tech-cyan),var(--tech-cyan)) left top/100% 2px no-repeat,
+		linear-gradient(var(--tech-cyan),var(--tech-cyan)) left top/2px 100% no-repeat,
+		linear-gradient(var(--tech-cyan),var(--tech-cyan)) right top/100% 2px no-repeat,
+		linear-gradient(var(--tech-cyan),var(--tech-cyan)) right top/2px 100% no-repeat;
+	filter:drop-shadow(0 0 4px rgba(39,230,255,.7));
+}
+.box::before{top:2px;left:16px;}
+.box::after{bottom:6px;right:16px;transform:rotate(180deg);}
+
+/* 弹窗信息框 */
+#infobox{
+	background:linear-gradient(160deg, rgba(10,38,74,.88), rgba(5,18,38,.85)) !important;
+	border:1px solid var(--tech-cyan-soft) !important;
+	border-radius:12px !important;
+	box-shadow:0 0 28px rgba(39,230,255,.25), 0 10px 30px rgba(0,0,0,.5) !important;
+	-webkit-backdrop-filter:blur(12px);
+	backdrop-filter:blur(12px);
+	animation:techPop .28s cubic-bezier(.2,.9,.3,1.3) both;
+}
+#infoID{color:#f2fcff !important;text-shadow:0 0 10px rgba(39,230,255,.6);}
+
+/* 按钮 */
+.btn2,.btn3{
+	transition:all .25s ease;
+	cursor:pointer;
+}
+.btn2{
+	background:rgba(26,140,255,.18) !important;
+	border:1px solid var(--tech-cyan-soft) !important;
+	color:#eafaff !important;
+}
+.btn2:hover{
+	background:rgba(39,230,255,.32) !important;
+	border-color:var(--tech-cyan) !important;
+	box-shadow:0 0 14px rgba(39,230,255,.55);
+	color:#fff !important;
+}
+.btn3{
+	background:linear-gradient(180deg, rgba(39,230,255,.22), rgba(26,140,255,.12)) !important;
+	border:1px solid var(--tech-cyan-soft) !important;
+	color:#eafaff !important;
+}
+.btn3:hover{
+	background:linear-gradient(180deg, rgba(39,230,255,.4), rgba(26,140,255,.25)) !important;
+	box-shadow:0 0 16px rgba(39,230,255,.6);
+	transform:translateY(-1px);
+	color:#fff !important;
+}
+#closeInfobox{
+	background:rgba(39,230,255,.15) !important;
+	border:1px solid var(--tech-cyan-soft) !important;
+	color:#eafaff !important;
+	transition:all .25s;
+}
+#closeInfobox:hover{background:rgba(255,70,90,.55)!important;border-color:#ff6b81!important;box-shadow:0 0 12px rgba(255,70,90,.6);}
+
+/* 底部状态条 */
+.status-chip{
+	background:linear-gradient(180deg, rgba(12,46,88,.55), rgba(6,22,46,.45)) !important;
+	border:1px solid var(--tech-line) !important;
+	box-shadow:inset 0 0 20px rgba(26,140,255,.10), 0 4px 14px rgba(0,0,0,.3) !important;
+	transition:all .3s ease;
+	animation:techFadeUp .7s ease both;
+}
+.status-chip:hover{
+	border-color:var(--tech-cyan-soft) !important;
+	box-shadow:0 0 20px rgba(39,230,255,.3), inset 0 0 22px rgba(39,230,255,.12) !important;
+	transform:translateY(-2px);
+}
+.status-chip span{
+	font-family:titlefft,"微软雅黑",sans-serif !important;
+	letter-spacing:1px;
+	text-shadow:0 0 12px currentColor;
+}
+
+/* 监测信息条 */
+.monitor-bar{
+	background:linear-gradient(90deg, rgba(12,46,88,.55), rgba(8,30,60,.42), rgba(12,46,88,.55)) !important;
+	border:1px solid var(--tech-line) !important;
+	box-shadow:inset 0 0 22px rgba(26,140,255,.10), 0 0 16px rgba(39,230,255,.12) !important;
+	animation:techFadeUp .7s ease .3s both;
+}
+#cedian{
+	color:#eafaff !important;
+	letter-spacing:1px;
+	text-shadow:0 0 8px rgba(39,230,255,.45);
+}
+
+/* 入场动效 */
+@keyframes techFadeUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+@keyframes techFadeDown{from{opacity:0;transform:translateY(-16px);}to{opacity:1;transform:translateY(0);}}
+@keyframes techPop{from{opacity:0;transform:scale(.92);}to{opacity:1;transform:scale(1);}}
+
+/* ---------- 第二批精修 ---------- */
+/* 标题两侧科技装饰（flex 内联，垂直天然居中） */
+.head h4{display:inline-flex;align-items:center;gap:12px;padding:0 14px;}
+.head h4::before,.head h4::after{
+	content:"";flex-shrink:0;width:40px;height:12px;pointer-events:none;
+	background:
+		linear-gradient(90deg,transparent,var(--tech-cyan)) left center/30px 2px no-repeat,
+		radial-gradient(circle,var(--tech-cyan) 40%,transparent 45%) right center/7px 7px no-repeat;
+	filter:drop-shadow(0 0 5px rgba(39,230,255,.9));
+	opacity:.95;
+}
+.head h4::after{transform:scaleX(-1);}
+
+/* 数字等宽，跳动时不晃眼 */
+.head .time,.status-chip span,#cedian{font-variant-numeric:tabular-nums;}
+
+/* 状态图标呼吸光晕（颜色跟随图标本身） */
+.status-chip i{animation:techBreathe 2.8s ease-in-out infinite;}
+@keyframes techBreathe{
+	0%,100%{text-shadow:0 0 6px currentColor;opacity:.85;}
+	50%{text-shadow:0 0 16px currentColor,0 0 26px currentColor;opacity:1;}
+}
+
+/* 监测信息条扫光（极克制，6 秒一次） */
+.monitor-bar{position:relative;overflow:hidden;}
+.monitor-bar::after{
+	content:"";position:absolute;top:0;left:-30%;width:30%;height:100%;
+	background:linear-gradient(100deg,transparent,rgba(39,230,255,.14),transparent);
+	animation:techScan 6s ease-in-out infinite;
+}
+@keyframes techScan{0%{left:-30%;}55%,100%{left:120%;}}
+
+/* 卡片悬停时角标增亮、边框微亮 */
+.box:hover::before,.box:hover::after{filter:drop-shadow(0 0 7px rgba(39,230,255,1));}
+.box:hover > .boxnav{border-color:rgba(39,230,255,.45) !important;box-shadow:inset 0 0 30px rgba(26,140,255,.16),0 8px 28px rgba(0,0,0,.4),0 0 22px rgba(39,230,255,.12) !important;}
+
+/* 面板标题左侧竖条 */
+.tit{display:flex;align-items:center;gap:8px;}
+.tit::before{
+	content:"";width:3px;height:16px;border-radius:2px;flex-shrink:0;
+	background:linear-gradient(180deg,var(--tech-cyan),var(--tech-blue));
+	box-shadow:0 0 8px rgba(39,230,255,.8);
+}
+.tit .btn3{margin-left:auto;}
+/* ==================== 科技风增强层 END ==================== */
+
 
 
