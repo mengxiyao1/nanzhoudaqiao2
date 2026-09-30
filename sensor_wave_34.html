@@ -606,12 +606,12 @@
         min: function(value) {
             var m = (value.min + value.max) / 2;
             if (isNaN(m) || !isFinite(m)) return undefined;
-            return m * 0.9;
+            return Math.round(m * 0.9);
         },
         max: function(value) {
             var m = (value.min + value.max) / 2;
             if (isNaN(m) || !isFinite(m)) return undefined;
-            return m * 1.1;
+            return Math.round(m * 1.1);
         },
         axisLine: { // y轴线白色
             lineStyle: {
