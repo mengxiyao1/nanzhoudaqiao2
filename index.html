@@ -303,7 +303,7 @@ maxValue = {
         max: function(value) {
             var m = (value.min + value.max) / 2;
             if (isNaN(m) || !isFinite(m)) return undefined;
-            return m * 1.1;
+            return m * 1.15;
         },
         splitLine: {
             show: true,
@@ -681,7 +681,8 @@ option = {
             top: "5px",
             bottom: "0px",
             containLabel: true,
-            width: "85%",
+            right: "70px",
+            width: "80%",
         },
     ],
     xAxis: {
@@ -747,7 +748,7 @@ option = {
         }
     }
     ],
-    animationDuration: 0,
+    animationDuration: 1000,
     animationDurationUpdate: 3000,
     animationEasing: 'linear',
     animationEasingUpdate: 'linear'
@@ -760,7 +761,8 @@ option2 = {
             top: "5px",
             bottom: "0px",
             containLabel: true,
-            width: "85%",
+            right: "70px",
+            width: "80%",
         },
     ],
     xAxis: {
@@ -826,7 +828,7 @@ option2 = {
         }
     }
     ],
-    animationDuration: 0,
+    animationDuration: 1000,
     animationDurationUpdate: 3000,
     animationEasing: 'linear',
     animationEasingUpdate: 'linear'

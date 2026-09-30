@@ -928,7 +928,7 @@ function getBarOption(data, ids) {
                 ])
             }
         }],
-        animationDuration: 0,
+        animationDuration: 1000,
         animationDurationUpdate: 3000,
         animationEasing: 'linear',
         animationEasingUpdate: 'linear'
@@ -976,7 +976,7 @@ var maxValue = {
         max: function(value) {
             var m = (value.min + value.max) / 2;
             if (isNaN(m) || !isFinite(m)) return undefined;
-            return m * 1.1;
+            return m * 1.15;
         },
         splitLine: { show: true, lineStyle: { color: '#737A85', type: 'dashed' } },
         axisLabel: { textStyle: { color: '#fff', fontSize: 10 } }

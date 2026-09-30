@@ -1074,8 +1074,9 @@
                                 //console.log(randomHexColor);
                                 option.legend.data.push(dataObject.id_content);
                                 option.series.push(item);
-                                // 计算实际数据均值±10%
-                                var validData = dataObject.data.filter(function(v){return v!==null && !isNaN(v);});
+                                // 计算实际数据均值±10%（排除0值和无效数据）
+                                var validData = dataObject.data.filter(function(v){return v!==null && !isNaN(v) && v > 0;});
+                                if (validData.length === 0) validData = [1];
                                 var dMin = Math.min.apply(null, validData);
                                 var dMax = Math.max.apply(null, validData);
                                 var dMean = (dMin + dMax) / 2;
