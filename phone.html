@@ -871,8 +871,10 @@ for (var i = 0; i < 24; i++) {
 }
 
 function getBarOption(data, ids) {
-    var maxVal = Math.max.apply(null, data.map(function(v) { return Number(v) || 0; }));
-    var xMax = Math.ceil(maxVal * 1.28);
+    var sum = data.reduce(function(s, v) { return s + (Number(v) || 0); }, 0);
+    var mean = sum / data.length;
+    var xMax = Math.ceil(mean * 1.1);
+    var xMin = Math.floor(mean * 0.9);
     return {
         grid: { left: 10, top: 8, bottom: 22, right: 22, containLabel: true },
         dataZoom: [
@@ -888,7 +890,7 @@ function getBarOption(data, ids) {
               brushSelect: false, filterMode: 'none' }
         ],
         xAxis: {
-            min: 0,
+            min: xMin,
             max: xMax,
             axisLine: { lineStyle: { color: '#4790ea' } },
             splitLine: { show: false },
@@ -966,7 +968,16 @@ var maxValue = {
         data: []
     },
     yAxis: {
-        scale: true,
+        min: function(value) {
+            var m = (value.min + value.max) / 2;
+            if (isNaN(m) || !isFinite(m)) return undefined;
+            return m * 0.9;
+        },
+        max: function(value) {
+            var m = (value.min + value.max) / 2;
+            if (isNaN(m) || !isFinite(m)) return undefined;
+            return m * 1.1;
+        },
         splitLine: { show: true, lineStyle: { color: '#737A85', type: 'dashed' } },
         axisLabel: { textStyle: { color: '#fff', fontSize: 10 } }
     },

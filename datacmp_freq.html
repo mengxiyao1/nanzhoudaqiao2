@@ -935,9 +935,8 @@
                 color: '#fff' 
             },
             type: 'value',
-            max:1,
-            min:10000000,
-            scale: true,
+            min: 0,
+            max: 1000,
             axisLine: {
                 lineStyle: {
                     color: '#fff' 
@@ -1075,24 +1074,19 @@
                                 //console.log(randomHexColor);
                                 option.legend.data.push(dataObject.id_content);
                                 option.series.push(item);
-                                var stdForceMax=stdForce+1;
-                                var stdForceMin=stdForce-1;
-                                console.log(stdForceMax);
-                                //var stdForceMax=500;
-                                //var stdForceMin=-500;
-                                if(option.series.length<=1){
-                                option.yAxis[0].max=stdForceMax;
-                                option.yAxis[0].min=stdForceMin;
-                                }else{
-                                if(option.yAxis[0].max<stdForceMax)
-                                option.yAxis[0].max=stdForceMax;
-                                if(option.yAxis[0].min>stdForceMin)
-                                option.yAxis[0].min=stdForceMin;
-                                }
+                                // 计算实际数据均值±10%
+                                var validData = dataObject.data.filter(function(v){return v!==null && !isNaN(v);});
+                                var dMin = Math.min.apply(null, validData);
+                                var dMax = Math.max.apply(null, validData);
+                                var dMean = (dMin + dMax) / 2;
+                                var meanMax = Math.ceil(dMean * 1.1);
+                                var meanMin = Math.floor(dMean * 0.9);
+                                console.log("mean:"+dMean+" range:"+meanMin+"~"+meanMax);
                                 if (dataObject.date.length > option.xAxis[0].data.length)
                                     option.xAxis[0].data = dataObject.date;
-                                //console.log(dataObject.date);
-                                chart.setOption(option);
+                                chart.setOption(option, true);
+                                // 单独更新Y轴范围
+                                chart.setOption({yAxis:[{min:meanMin, max:meanMax}]});
                   }
                 });
             }

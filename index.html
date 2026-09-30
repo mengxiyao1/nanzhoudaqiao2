@@ -294,8 +294,17 @@ maxValue = {
         },
         data: []
         },
-    yAxis: {    
-        scale:true,
+    yAxis: {
+        min: function(value) {
+            var m = (value.min + value.max) / 2;
+            if (isNaN(m) || !isFinite(m)) return undefined;
+            return m * 0.9;
+        },
+        max: function(value) {
+            var m = (value.min + value.max) / 2;
+            if (isNaN(m) || !isFinite(m)) return undefined;
+            return m * 1.1;
+        },
         splitLine: {
             show: true,
             lineStyle: {
@@ -662,6 +671,8 @@ for (let i = 0; i < 24; i++) {
     cID[i] = sensor[i].content;
     cID2[i] = sensor[i+24].content;
 }
+var cDataMean = cData.reduce(function(s, v) { return s + Number(v); }, 0) / cData.length;
+var cData2Mean = cData2.reduce(function(s, v) { return s + Number(v); }, 0) / cData2.length;
 
 option = {
     grid: [
@@ -674,7 +685,9 @@ option = {
         },
     ],
     xAxis: {
-        max: 'dataMax',
+        type: 'value',
+        min: Math.floor(cDataMean * 0.9),
+        max: Math.ceil(cDataMean * 1.1),
         axisLine:{
             lineStyle:{
             color:'#4790ea'
@@ -751,7 +764,9 @@ option2 = {
         },
     ],
     xAxis: {
-        max: 'dataMax',
+        type: 'value',
+        min: Math.floor(cData2Mean * 0.9),
+        max: Math.ceil(cData2Mean * 1.1),
         axisLine:{
             lineStyle:{
             color:'#4790ea'
