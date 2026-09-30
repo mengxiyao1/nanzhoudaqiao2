@@ -238,45 +238,6 @@
             text-align: center;
             padding: 2px 0;
         }
-        .bar-zoom-wrap {
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 2px 12px 4px;
-        }
-        .bar-zoom-label {
-            color: rgba(255,255,255,0.7);
-            font-size: 11px;
-            white-space: nowrap;
-        }
-        #barZoom {
-            flex: 1;
-            -webkit-appearance: none;
-            appearance: none;
-            height: 4px;
-            border-radius: 2px;
-            background: rgba(7,118,181,0.4);
-            outline: none;
-        }
-        #barZoom::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background: #66ccff;
-            cursor: pointer;
-            box-shadow: 0 0 6px rgba(102,204,255,0.6);
-        }
-        #barZoom::-moz-range-thumb {
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background: #66ccff;
-            cursor: pointer;
-            border: none;
-        }
         .btn2 {
             border: 1px solid rgba(73, 153, 199, 0.9);
             height: 28px;
@@ -588,12 +549,9 @@
                 <div id="infoChart"></div>
             </div>
         </div>
-        <!-- 柱子缩放拉杆：拖动时柱子回收，不改变真实数值 -->
-        <div class="bar-zoom-wrap">
-            <span class="bar-zoom-label">缩放</span>
-            <input type="range" id="barZoom" min="100" max="250" value="100" step="1">
-        </div>
     </div>
+
+    <!-- 底部统计 -->
     <div class="monitor-footer">
         <div class="info-bar">
             累计监测：158天&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -892,6 +850,13 @@ function applyInfoChart(data) {
     if (!obj || !obj.date || !obj.data) return;
     maxValue.xAxis.data = obj.date;
     maxValue.series[0].data = obj.data;
+    // 基于全部数据计算固定Y轴范围，拖动拉条时Y轴不变
+    var validData = obj.data.filter(function(v){ return v !== null && !isNaN(v); });
+    var dMin = Math.min.apply(null, validData);
+    var dMax = Math.max.apply(null, validData);
+    var dMean = (dMin + dMax) / 2;
+    maxValue.yAxis.min = Math.floor(dMean * 0.9);
+    maxValue.yAxis.max = Math.ceil(dMean * 1.1);
     var chart = ensureMChart();
     chart.setOption(maxValue, true);
     setTimeout(function() { chart.resize(); }, 80);
@@ -913,9 +878,10 @@ for (var i = 0; i < 24; i++) {
 }
 
 function getBarOption(data, ids) {
-    var xMax = 8400;
-    var xMin = 6000;
-    window._barBaseMax = xMax;
+    var sum = data.reduce(function(s, v) { return s + (Number(v) || 0); }, 0);
+    var mean = sum / data.length;
+    var xMax = Math.ceil(mean * 1.1);
+    var xMin = Math.floor(mean * 0.9);
     return {
         grid: { left: 10, top: 8, bottom: 22, right: 22, containLabel: true },
         dataZoom: [
@@ -969,7 +935,7 @@ function getBarOption(data, ids) {
                 ])
             }
         }],
-        animationDuration: 1000,
+        animationDuration: 0,
         animationDurationUpdate: 3000,
         animationEasing: 'linear',
         animationEasingUpdate: 'linear'
@@ -984,22 +950,13 @@ document.getElementById('btnUpstream').addEventListener('click', function() {
     this.classList.add('active');
     document.getElementById('btnDownstream').classList.remove('active');
     currentSide = 'upstream';
-    document.getElementById('barZoom').value = 100;
     myChart.setOption(getBarOption(cData, cID), true);
 });
 document.getElementById('btnDownstream').addEventListener('click', function() {
     this.classList.add('active');
     document.getElementById('btnUpstream').classList.remove('active');
     currentSide = 'downstream';
-    document.getElementById('barZoom').value = 100;
     myChart.setOption(getBarOption(cData2, cID2), true);
-});
-
-// 缩放拉杆：拖动时放大 xAxis.max → 柱子回收，不改变真实数值
-document.getElementById('barZoom').addEventListener('input', function() {
-    var scale = Number(this.value) / 100;
-    var newMax = Math.ceil(window._barBaseMax * scale);
-    myChart.setOption({ xAxis: { max: newMax } });
 });
 
 var maxValue = {
@@ -1011,22 +968,28 @@ var maxValue = {
         padding: 8,
         textStyle: { color: '#fff' }
     },
-    grid: { left: '3%', right: '5%', bottom: '3%', top: '12%', containLabel: true },
+    grid: { left: '3%', right: '5%', bottom: '15%', top: '12%', containLabel: true },
+    dataZoom: [
+        { type: 'inside', xAxisIndex: 0, start: 0, end: 100, zoomOnMouseWheel: false, moveOnMouseMove: true, moveOnMouseWheel: false },
+        { type: 'slider', xAxisIndex: 0, start: 0, end: 100, height: 18, bottom: 2, left: '3%', right: '5%',
+          borderColor: 'rgba(92,161,221,0.5)', fillerColor: 'rgba(7,118,181,0.35)',
+          handleStyle: { color: '#66ccff' }, textStyle: { color: '#fff', fontSize: 10 },
+          brushSelect: false }
+    ],
     xAxis: {
         type: 'category', axisLine: { show: false },
         axisLabel: { textStyle: { color: '#fff', fontSize: 10 } },
         data: []
     },
     yAxis: {
+        scale: true,
         min: function(value) {
             var m = (value.min + value.max) / 2;
-            if (isNaN(m) || !isFinite(m)) return undefined;
-            return m * 0.9;
+            return Math.floor(m * 0.9);
         },
         max: function(value) {
             var m = (value.min + value.max) / 2;
-            if (isNaN(m) || !isFinite(m)) return undefined;
-            return m * 1.15;
+            return Math.ceil(m * 1.1);
         },
         splitLine: { show: true, lineStyle: { color: '#737A85', type: 'dashed' } },
         axisLabel: { textStyle: { color: '#fff', fontSize: 10 } }
